@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TimeManagement</title>
+  <%= stylesheet_link_tag :all, :cache=>true %>
+  <%= javascript_include_tag :defaults, 'monthpicker.min', 'jquery.notify', :cache=>true %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div class="centred-width">
+    <%= notice_alert %>
+    <%= yield %>
+  </div>
+  <%= render 'shared/notify' %>
+</body>
+</html>

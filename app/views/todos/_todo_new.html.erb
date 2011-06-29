@@ -1,0 +1,20 @@
+<div class="row">
+  <%= form_for @todo, :remote => true do |f| %>
+    <div class="float-left title">
+      <%= f.text_field :title, :class=>'title' %>
+    </div>
+    <div class="float-left description">
+      <%= f.text_area :description, :rows => 4, :cols=> 10, :class=>'description' %>
+    </div>
+    <div class="float-left date">
+      <%= f.text_field :date, :class => 'datepicker date' %>
+    </div>
+    <div class="float-left time">
+      <%= f.text_field :time,:value=> numeric_to_hours(@todo.time), :class => 'autotime time' %>
+    </div>
+    <div class="float-left actions buttons">
+      <%= f.submit %>
+    </div>
+    <div class="clear" ></div>
+  <% end %>
+</div>

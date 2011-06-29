@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: 2010-08-29
+  start: 2010-08-29 21:49:05
+  end: 2010-08-29 21:49:05
+  duration: 1
+
+two:
+  date: 2010-08-29
+  start: 2010-08-29 21:49:05
+  end: 2010-08-29 21:49:05
+  duration: 1

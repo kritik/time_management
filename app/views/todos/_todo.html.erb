@@ -1,0 +1,9 @@
+<div id="todo_<%= todo.id %>" class="row">
+    <div class="float-left title"><%= todo.title %></div>
+    <div class="float-left description"><%= nl2br(todo.description) %></div>
+    <div class="float-left date"><%= todo.date %></div>
+    <div class="float-left time"><%= numeric_to_hours(todo.time) %></div>
+    <div class="float-left buttons"><%= link_to 'Edit', edit_todo_path(todo), :remote => true %></div>
+    <div class="float-left buttons"><%= link_to 'Destroy', todo, :confirm => 'Are you sure?', :method => :delete %></div>
+    <div class="clear" ></div>
+</div>

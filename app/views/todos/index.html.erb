@@ -1,0 +1,23 @@
+<h1>Listing todos</h1>
+<br />
+<div id="todo-div" class ="ui-widget ui-widget-content">
+  <%= render 'div_title' %>
+  <%= render 'todo_new' %>
+  <%= render :partial => 'todo', :collection => @todos %>
+</div>
+
+<table id="todo-table" class="ui-widget ui-widget-content">
+  <%= render 'table_title' %>
+  <tbody>
+  <%#= render :partial => "todo_new" %>
+  <% @todos.each do |todo| %>
+    <% @todo = todo %>
+    <%= render :partial => 'todo_td', :object=> todo %>
+    <%#= render :partial => "edit" %>
+  <% end %>
+  </tbody>
+</table>
+<br />
+
+<%= link_to 'New Todo', new_todo_path, :remote=>true %>
+<%= render "shared/dialogs" %>

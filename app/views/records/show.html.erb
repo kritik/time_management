@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @record.date %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @record.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @record.ends %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @record.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>

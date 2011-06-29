@@ -1,0 +1,49 @@
+<div class="MonthPicker" id="example" title="Search time records by month" data-url_to_go ="<%= monthed_records_path("%y","%m") %>">
+  <%= link_to "<<", monthed_records_path(params[:year].to_i-1, params[:month]) %>
+  <%= link_to "<", monthed_records_path(params[:year], params[:month].to_i-1) %>
+  Currently: <%= params[:month] %> <%= params[:year] %>
+  <%= link_to ">", monthed_records_path(params[:year], params[:month].to_i+1) %>
+  <%= link_to ">>", monthed_records_path(params[:year].to_i+1, params[:month]) %>
+</div>
+
+<div>
+  <div class="float-left">
+    <h1>Listing records</h1>
+
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Duration</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.date %></td>
+        <td><%= numeric_to_hours(record.start) %></td>
+        <td><%= numeric_to_hours(record.ends) %></td>
+        <td><%= numeric_to_hours(record.duration) %></td>
+        <td><%= link_to 'Show', record %></td>
+        <td><%= link_to 'Edit', edit_record_path(record) %></td>
+        <td><%= link_to 'Destroy', record, :confirm => 'Are you sure?', :method => :delete %> <%= button_to 'Destroy', record, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+    Totally was working: <%= numeric_to_hours(@total_worked_time) %>
+    <br />
+    
+    <%= link_to 'New Record', new_record_path %>
+  </div>
+  
+  <div id="calendar"
+       data-have-dates="<%= @records.map{|r| r.date}.uniq.join(',') %>"
+       data-month-to-show="01-<%= params[:month] %>-<%= params[:year] %>"
+       data-new-record_path ="<%= new_record_with_date_path %>"
+       value="01-<%= params[:month] %>-<%= params[:year] %>"
+  ></div>
+</div>
+

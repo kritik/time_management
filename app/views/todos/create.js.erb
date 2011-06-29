@@ -1,0 +1,16 @@
+<% if @todo.errors.any? %>
+  <% @todo.errors.full_messages.each do |msg| %>
+    create("themeroller",  {
+        title: 'You have an error',
+        text: "<%= msg %>"
+    },{custom:true});
+  <% end %>
+<% else %>
+    create("sticky",  {
+        title: 'saved',
+        text: "<%= @notice %>"
+    });
+    $("#todo-table").append("<%= escape_javascript(render :partial => @todo) %>");
+    <%# to refresh timestams in new todo block %>
+    set_todos_parameter_to_edit("","","<%= Record::get_date %>","<%= get_time_as_string %>");
+<% end %>

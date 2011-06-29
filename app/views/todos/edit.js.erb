@@ -1,0 +1,1 @@
+$("#todo_<%= @todo.id %>").hide(1000).replaceWith("<%= escape_javascript(render "edit")  %>").show(1000);
